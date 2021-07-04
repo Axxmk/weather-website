@@ -12,8 +12,8 @@ module.exports = (latitude, longitude, callback) => {
 			callback(res.body.error.info, undefined);
 		}
 		else {
-			const { current } = body;
-			callback(undefined, `${current.weather_descriptions[0]}. It is currently ${current.temperature} degrees out. It feel like ${current.feelslike} degrees out.`);
+			const { weather_descriptions, cloudcover, temperature, feelslike } = body.current;
+			callback(undefined, `${weather_descriptions[0]} with ${cloudcover} cloudcover. It is currently ${temperature} degrees out. It feel like ${feelslike} degrees out.`);
 		}
 	})
 };
