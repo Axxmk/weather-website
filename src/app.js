@@ -42,6 +42,7 @@ app.get('/help', (req, res) => {
 	});
 })
 
+// query weather data from API
 app.get('/weather', (req, res) => {
 	const { address } = req.query;
 
@@ -70,19 +71,7 @@ app.get('/weather', (req, res) => {
 	});
 })
 
-app.get('/products', (req, res) => {
-	if (!req.query.search) {
-		return res.send({
-			error: "You must provide a search term",
-		});
-	}
-
-	console.log(req.query);
-	res.send({
-		products: [],
-	});
-})
-
+// Match any other paths
 app.get('/help/*', (req, res) => {
 	res.render('404', {
 		title: "404",
@@ -99,7 +88,7 @@ app.get('*', (req, res) => {
 	});
 })
 
-
+// Listen for connection
 app.listen(port, () => {
 	console.log(`App listening at port ${port}`);
 })

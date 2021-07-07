@@ -8,9 +8,11 @@ weatherForm.addEventListener('submit', (event) => {
 
 	const address = inputElem.value;
 
+	// Text before the data completely fetched
 	message1Elem.textContent = 'Loading...';
 	message2Elem.textContent = '';
 
+	// Fetch data from /weather endpoint
 	fetch(`/weather?address=${address}`).then((res) => {
 		res.json().then((data) => {
 			if (data.error) {
