@@ -1,2 +1,2 @@
 # weather-website
-This is a project using Express and some APIs
+This is a project using Express.js (node.js) and some APIs
